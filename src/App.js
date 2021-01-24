@@ -10,7 +10,6 @@ class App extends React.Component {
         this.state = {
             currentDisplayIndex: 0
         }
-
     }
 
     substractOnClick = () => {
@@ -30,9 +29,7 @@ class App extends React.Component {
 
     render() {
         const listTexts = texts.map((text, i) => {
-            if (i === this.state.currentDisplayIndex) {
-                return <Linia key={i} text={text} />
-            }
+            return <Linia key={i} text={text} marked={i === this.state.currentDisplayIndex ? true : false} />
         })
 
         return (
