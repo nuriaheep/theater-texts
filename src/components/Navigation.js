@@ -1,25 +1,12 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import NavItem from '../style/NavItem-style.js'
 
 export default (props) => {
-    const NavItem = styled.button`
-        width: 50%;
-        text-align: center;
-        height: 5rem;
-        border: 2px solid lightgrey;
-        bakcground: lightgrey;
-        cursor: pointer;
-        font-size: 2rem;
-
-        &:hover {
-            background: lightblue;
-        }
-    `
 
     return (
         <div className="navigation">
-            <NavItem className="substract" onClick={(e) => props.onPrevButtonClick(e)} >Anterior</NavItem>
-            <NavItem className="add" onClick={(e) => props.onNextButtonClick(e)} >Següent</NavItem>
+            <NavItem onClick={props.onPrevButtonClick}>Anterior</NavItem>
+            <NavItem onClick={props.onNextButtonClick}>Següent</NavItem>
         </div>
     )
 }

@@ -9,36 +9,37 @@ class App extends React.Component {
         super(props);
         this.state = {
             currentDisplayIndex: 0
-        }
-    }
+        };
+    };
 
     substractOnClick = () => {
+        const { currentDisplayIndex } = this.state;
         this.setState(() => ({
-            currentDisplayIndex: this.state.currentDisplayIndex > 0
-                ? this.state.currentDisplayIndex - 1
-                : this.state.currentDisplayIndex
-        }))
-    }
+            currentDisplayIndex: currentDisplayIndex > 0
+                ? currentDisplayIndex - 1
+                : currentDisplayIndex
+        }));
+    };
+
     addOnClick = () => {
+        const { currentDisplayIndex } = this.state;
         this.setState(() => ({
-            currentDisplayIndex: this.state.currentDisplayIndex < texts.length
-                ? this.state.currentDisplayIndex + 1
-                : this.state.currentDisplayIndex
-        }))
-    }
+            currentDisplayIndex: currentDisplayIndex < texts.length
+                ? currentDisplayIndex + 1
+                : currentDisplayIndex
+        }));
+    };
 
     render() {
-        const listTexts = texts.map((text, i) => {
-            return <Linia key={i} text={text} marked={i === this.state.currentDisplayIndex ? true : false} />
-        })
-
         return (
             <div>
-                <Navigation onPrevButtonClick={() => this.substractOnClick()} onNextButtonClick={() => this.addOnClick()} />
-                {listTexts}
+                <Navigation onPrevButtonClick={this.substractOnClick} onNextButtonClick={() => this.addOnClick()} />
+                {texts.map((text, i) => {
+                    return <Linia key={i} text={text} marked={i === this.state.currentDisplayIndex} />
+                })}
             </div>
         );
-    }
+    };
 };
 
 export default App;
