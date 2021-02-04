@@ -6,5 +6,5 @@ export default (props) => {
         <div>
             <TextLine className={props.marked ? 'marked' : ''}>{props.text}</TextLine>
         </div>
-    )
+    );
 };

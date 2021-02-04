@@ -8,5 +8,5 @@ export default (props) => {
             <NavItem onClick={props.onPrevButtonClick}>Anterior</NavItem>
             <NavItem onClick={props.onNextButtonClick}>Següent</NavItem>
         </div>
-    )
-}
+    );
+};
